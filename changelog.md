@@ -18,6 +18,7 @@
 * fixes to `clean` and image removal in general were added, along with built-on-the-fly images for testing (#755)
 
 * eris-keys:
+* https://github.com/eris-ltd/eris-keys/pull/55
 
 * eris-cm:
 
