@@ -215,7 +215,7 @@ func testStartChain(chainName string, t *testing.T) {
 	do := definitions.NowDo()
 	do.Name = chainName
 	do.Operations.PublishAllPorts = true
-	if err := chains.NewChain(do); err != nil {
+	if err := chains.StartChain(do); err != nil {
 		t.Fatalf("starting chain %v failed: %v", chainName, err)
 	}
 }

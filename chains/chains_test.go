@@ -154,7 +154,7 @@ func TestCatChainContainerConfig(t *testing.T) {
 	do.ConfigFile = filepath.Join(common.ChainsPath, "default", "config.toml")
 	do.Name = chainName
 	do.Operations.PublishAllPorts = true
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("expected a new chain to be created, got %v", err)
 	}
 
@@ -178,7 +178,7 @@ func TestCatChainContainerGenesis(t *testing.T) {
 	do.ConfigFile = filepath.Join(common.ChainsPath, "default", "config.toml")
 	do.Name = chainName
 	do.Operations.PublishAllPorts = true
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("expected a new chain to be created, got %v", err)
 	}
 
@@ -200,7 +200,7 @@ func TestChainsNewDirGenesis(t *testing.T) {
 	do := def.NowDo()
 	do.Name = chain
 	do.Operations.PublishAllPorts = true
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("expected a new chain to be created, got %v", err)
 	}
 
@@ -219,7 +219,7 @@ func TestChainsNewConfig(t *testing.T) {
 	do.Name = chain
 	do.ConfigFile = filepath.Join(common.ChainsPath, "default", "config.toml")
 	do.Operations.PublishAllPorts = true
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("expected to create a new chain, got %v", err)
 	}
 
@@ -240,7 +240,7 @@ func TestChainsNewKeysImported(t *testing.T) {
 	do := def.NowDo()
 	do.Name = chain
 	do.Operations.PublishAllPorts = true
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("expected a new chain to be created, got %v", err)
 	}
 
@@ -309,7 +309,7 @@ func TestRenameChain(t *testing.T) {
 
 	do := def.NowDo()
 	do.Name = chain
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("expected a new chain to be created, got %v", err)
 	}
 
@@ -474,7 +474,7 @@ func TestServiceLink(t *testing.T) {
 
 	do := def.NowDo()
 	do.Name = chain
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("could not start a new chain, got %v", err)
 	}
 
@@ -526,7 +526,7 @@ func TestServiceLinkWithDataContainer(t *testing.T) {
 
 	do := def.NowDo()
 	do.Name = chain
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("could not start a new chain, got %v", err)
 	}
 
@@ -578,7 +578,7 @@ func TestServiceLinkLiteral(t *testing.T) {
 
 	do := def.NowDo()
 	do.Name = chain
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("could not start a new chain, got %v", err)
 	}
 
@@ -629,7 +629,7 @@ func TestServiceLinkBadLiteral(t *testing.T) {
 
 	do := def.NowDo()
 	do.Name = chain
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("could not start a new chain, got %v", err)
 	}
 
@@ -697,7 +697,7 @@ data_container = true
 
 	do := def.NowDo()
 	do.Name = chain
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("could not start a new chain, got %v", err)
 	}
 
@@ -740,7 +740,7 @@ func TestServiceLinkKeys(t *testing.T) {
 
 	do := def.NowDo()
 	do.Name = chain
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("could not start a new chain, got %v", err)
 	}
 
@@ -770,7 +770,7 @@ func create(t *testing.T, chain string) {
 	do.ConfigFile = filepath.Join(common.ChainsPath, "default", "config.toml")
 	do.Name = chain
 	do.Operations.PublishAllPorts = true
-	if err := NewChain(do); err != nil {
+	if err := StartChain(do); err != nil {
 		t.Fatalf("expected a new chain to be created, got %v", err)
 	}
 }
