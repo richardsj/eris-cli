@@ -38,7 +38,7 @@ away!`,
 
 func buildChainsCommand() {
 	Chains.AddCommand(chainsMake)
-	Chains.AddCommand(chainsNew)
+	//Chains.AddCommand(chainsNew)
 	Chains.AddCommand(chainsImport)
 	Chains.AddCommand(chainsList)
 	Chains.AddCommand(chainsCheckout)
@@ -401,6 +401,17 @@ func addChainsFlags() {
 	chainsList.Flags().BoolVarP(&do.Running, "running", "r", false, "show running containers")
 }
 
+// TODO move checks into start chain
+func NewChain(cmd *cobra.Command, args []string) {
+	IfExit(ArgCheck(1, "ge", cmd, args))
+	do.Name = args[0]
+	do.Run = true
+	if do.Name != "default" && do.Path == "" { //not default & no --dir given
+		IfExit(errors.New("cannot omit the --dir flag unless chainName == default"))
+	}
+	//IfExit(chns.NewChain(do))
+}
+
 func StartChain(cmd *cobra.Command, args []string) {
 	// [csk]: if no args should we just start the checkedout chain?
 	IfExit(ArgCheck(1, "ge", cmd, args))
@@ -467,16 +478,6 @@ func MakeChain(cmd *cobra.Command, args []string) {
 	}
 
 	IfExit(chns.MakeChain(do))
-}
-
-func NewChain(cmd *cobra.Command, args []string) {
-	IfExit(ArgCheck(1, "ge", cmd, args))
-	do.Name = args[0]
-	do.Run = true
-	if do.Name != "default" && do.Path == "" { //not default & no --dir given
-		IfExit(errors.New("cannot omit the --dir flag unless chainName == default"))
-	}
-	IfExit(chns.NewChain(do))
 }
 
 func ImportChain(cmd *cobra.Command, args []string) {
@@ -592,12 +593,4 @@ func RmChain(cmd *cobra.Command, args []string) {
 	IfExit(ArgCheck(1, "ge", cmd, args))
 	do.Name = args[0]
 	IfExit(chns.RemoveChain(do))
-}
-
-func MakeGenesisFile(cmd *cobra.Command, args []string) {
-	IfExit(ArgCheck(2, "ge", cmd, args))
-	do.Chain.Name = strings.TrimSpace(args[0])
-	do.Pubkey = strings.TrimSpace(args[1])
-	IfExit(chns.MakeGenesisFile(do))
-
 }
