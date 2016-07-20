@@ -97,6 +97,7 @@ $ eris chains make myChain --tar -- will create the chain and save each of the "
 	Run: MakeChain,
 }
 
+// TODO move helper into `chains start`
 var chainsNew = &cobra.Command{
 	Use:   "new NAME",
 	Short: "create and start a new blockhain",
@@ -251,6 +252,7 @@ will default to that if you wise.`,
 	Run: EditChain,
 }
 
+// TODO update helper with `chains new`
 var chainsStart = &cobra.Command{
 	Use:   "start",
 	Short: "start a blockchain",

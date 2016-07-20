@@ -27,7 +27,7 @@ type Do struct {
 	OutputTable   bool     `mapstructure:"," json:"," yaml:"," toml:","`
 	Overwrite     bool     `mapstructure:"," json:"," yaml:"," toml:","`
 	Dump          bool     `mapstructure:"," json:"," yaml:"," toml:","`
-	Lines         int      `mapstructure:"," json:"," yaml:"," toml:","` // XXX: for tail and logs
+	Lines         int      `mapstructure:"," json:"," yaml:"," toml:","`
 	Timeout       uint     `mapstructure:"," json:"," yaml:"," toml:","`
 	N             uint     `mapstructure:"," json:"," yaml:"," toml:","`
 	Address       string   `mapstructure:"," json:"," yaml:"," toml:","`
@@ -41,6 +41,7 @@ type Do struct {
 	ConfigFile    string   `mapstructure:"," json:"," yaml:"," toml:","`
 	ServerConf    string   `mapstructure:"," json:"," yaml:"," toml:","`
 	ChainID       string   `mapstructure:"," json:"," yaml:"," toml:","`
+	InitDir       string   `mapstructure:"," json:"," yaml:"," toml:","`
 	Hash          string   `mapstructure:"," json:"," yaml:"," toml:","`
 	Gateway       string   `mapstructure:"," json:"," yaml:"," toml:","`
 	MachineName   string   `mapstructure:"," json:"," yaml:"," toml:","`
