@@ -34,7 +34,7 @@ func StartChain(do *definitions.Do) error {
 	if ok {
 		_, err := startChain(do, false) // [zr] why are we ignoring the buffer?
 		return err
-	} else if do.InitDir {
+	} else if do.Path != "" {
 		// code below copied as-is from NewChain()
 		dir := filepath.Join(DataContainersPath, do.Name)
 		if util.DoesDirExist(dir) {
@@ -101,13 +101,7 @@ func ThrowAwayChain(do *definitions.Do) error {
 		"path": do.Path,
 	}).Debug("Making a throaway chain")
 
-	if err := NewChain(do); err != nil {
-		return err
-	}
-
-	log.WithField("=>", do.Name).Debug("Throwaway chain created")
-	do.Run = true  // turns on edb api
-	StartChain(do) // XXX [csk]: may not need to do this now that New starts....
+	StartChain(do)
 	log.WithField("=>", do.Name).Debug("Throwaway chain started")
 	return nil
 }

@@ -360,13 +360,7 @@ func addChainsFlags() {
 	chainsMake.PersistentFlags().StringVarP(&do.ChainMakeVals, "validators", "", "", "comma separated list of the validators.csv files you would like to utilize (requires --known flag)")
 	chainsMake.PersistentFlags().BoolVarP(&do.RmD, "data", "x", true, "remove data containers after stopping")
 
-	buildFlag(chainsNew, do, "dir", "chain")
-	buildFlag(chainsNew, do, "env", "chain")
-	buildFlag(chainsNew, do, "publish", "chain")
-	buildFlag(chainsNew, do, "ports", "chain")
-	buildFlag(chainsNew, do, "links", "chain")
-	chainsNew.PersistentFlags().BoolVarP(&do.Logrotate, "logrotate", "z", false, "turn on logrotate as a dependency to handle long output")
-
+	buildFlag(chainsStart, do, "init-dir", "chain")
 	buildFlag(chainsStart, do, "publish", "chain")
 	buildFlag(chainsStart, do, "ports", "chain")
 	buildFlag(chainsStart, do, "env", "chain")

@@ -41,7 +41,6 @@ type Do struct {
 	ConfigFile    string   `mapstructure:"," json:"," yaml:"," toml:","`
 	ServerConf    string   `mapstructure:"," json:"," yaml:"," toml:","`
 	ChainID       string   `mapstructure:"," json:"," yaml:"," toml:","`
-	InitDir       string   `mapstructure:"," json:"," yaml:"," toml:","`
 	Hash          string   `mapstructure:"," json:"," yaml:"," toml:","`
 	Gateway       string   `mapstructure:"," json:"," yaml:"," toml:","`
 	MachineName   string   `mapstructure:"," json:"," yaml:"," toml:","`
