@@ -34,7 +34,7 @@ func StartChain(do *definitions.Do) error {
 	if ok {
 		_, err := startChain(do, false) // [zr] why are we ignoring the buffer?
 		return err
-	} else if do.Path != "" {
+	} else { //if do.Path != "" {
 		// code below copied as-is from NewChain()
 		dir := filepath.Join(DataContainersPath, do.Name)
 		if util.DoesDirExist(dir) {
@@ -49,13 +49,14 @@ func StartChain(do *definitions.Do) error {
 		// and we overwrite using jq in the container
 		log.WithField("=>", do.Name).Debug("Setting up chain")
 		return setupChain(do, loaders.ErisChainNew)
-	} else {
+	}
+	/*} else {
 		// chains make --chain-type=simplechain // name is what ?!?
 		// chain start
 
 		// [zr] not a fan of this third option.
 		// prefer routing users to running `chains make` first
-	}
+	}*/
 	return nil
 }
 
