@@ -234,8 +234,9 @@ will default to that if you wise.`,
 
 // TODO update helper with `chains new`
 var chainsStart = &cobra.Command{
-	Use:   "start",
-	Short: "start a blockchain",
+	Use:     "start",
+	Short:   "start a blockchain",
+	Aliases: []string{"new"},
 	Long: `start running a blockchain
 
 [eris chains start NAME] by default will put the chain into the
