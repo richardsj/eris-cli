@@ -151,17 +151,6 @@ into the blockchain.`,
 	Run: RegisterChain,
 }
 
-var chainsInstall = &cobra.Command{
-	Use:   "install NAME",
-	Short: "Install a blockchain from the etcb registry",
-	Long: `install a blockchain from the etcb registry
-
-Install an existing erisdb based blockchain for use locally.
-
-(Currently a work in progress.)`,
-	Run: InstallChain,
-}
-
 var chainsList = &cobra.Command{
 	Use:   "ls",
 	Short: "lists everything chain related",
@@ -478,12 +467,6 @@ func KillChain(cmd *cobra.Command, args []string) {
 	IfExit(ArgCheck(1, "ge", cmd, args))
 	do.Name = args[0]
 	IfExit(chns.KillChain(do))
-}
-
-func InstallChain(cmd *cobra.Command, args []string) {
-	IfExit(ArgCheck(1, "ge", cmd, args))
-	do.Name = args[0]
-	IfExit(chns.InstallChain(do))
 }
 
 func MakeChain(cmd *cobra.Command, args []string) {
